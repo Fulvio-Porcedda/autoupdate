@@ -1,0 +1,40 @@
+{
+  "name": "autoupdate",
+  "version": "1.0.0",
+  "description": "autoupdate app",
+  "main": "./app/main.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Fulvio-Porcedda/autoupdate.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
+  },
+  "author": "fp",
+  "license": "ISC",
+  "build": {
+    "appId": "it.fufo.autoupdate.electron",
+    "protocols": {
+      "name": "autoupdate",
+      "schemes": [
+        "myapp"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.Reference"
+    },
+    "win": {},
+    "asar": true
+  },
+  "devDependencies": {
+    "electron": "^11.3.0",
+    "electron-builder": "^20.44.4"
+  },
+  "dependencies": {
+    "electron-updater": "^4.3.9"
+  }
+}
